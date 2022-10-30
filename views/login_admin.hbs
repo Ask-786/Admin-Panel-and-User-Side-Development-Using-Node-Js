@@ -1,0 +1,35 @@
+<div class="container-sm">
+    <div class="row">
+        <div class="col text-center mt-5">
+            <h1>Login</h1>
+            <br>
+            <h5>Admin Panel</h5>
+            <br>
+        </div>
+    </div>
+    <div class="row pt-1">
+
+        <div class="col-md-3 col-1">
+
+        </div>
+
+        <div class="col-md-6 col-10">
+            <form action="/" method="POST">
+                <label for="" class="form-label">Username:</label>
+                <input type="text" class="form-control" required name="name" id="username" placeholder="Enter Username"
+                    id="user-name">
+                <label for="" class="form-label">Password:</label>
+                <input type="password" required class="form-control" name="password" id="password"
+                    placeholder="Enter Password" id="password">
+                <br>
+                <input type="submit" value="Submit" class="btn btn-primary">
+            </form>
+            <br>
+            {{#if message}}
+            <div class="alert alert-danger" role="alert">
+                PLEASE ENTER CORRECT USERNAME AND PASSOWORD
+            </div>
+            {{/if}}
+        </div>
+    </div>
+</div>
