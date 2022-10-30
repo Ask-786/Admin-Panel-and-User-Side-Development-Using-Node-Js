@@ -47,4 +47,12 @@ router.get('/', function(req, res, next) {
     res.render('home_admin',{card})
   });
 
+router.get('/add-blogs',(req,res)=>{
+    res.render('add_blogs');
+});
+
+router.post('/add-blog',(req,res)=>{
+    console.log(req.body)
+});
+
 module.exports = router;

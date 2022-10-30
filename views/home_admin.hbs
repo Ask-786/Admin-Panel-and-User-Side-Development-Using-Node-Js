@@ -1,7 +1,11 @@
+
 <div class="container d-flex flex-column align-items-center">
     <h1 class="mb-3">Admin Panel</h1>
 </div>
 <hr>
+<a href="/admin/add-blogs" class="btn btn-primary">Add Blogs</a>
+<a href="/logout" class="btn btn-primary">User list</a>
+<a href="/logout" class="btn btn-danger">Logout</a>
 <div class="container mt-5">
 <table class="table">
   <thead>
@@ -19,17 +23,10 @@
       <td>{{this.heading}}</td>
       <td>{{this.description}}</td>
       <td>{{this.author}}</td>
-      <td><span><a class="btn btn-danger" href="#" role="button">View details </a></span></td>
+      <td><span><a class="btn btn-danger" href="#" role="button">Delete</a></span></td>
     </tr>
     {{/each}}
   </tbody>
 </table>
 </div>
 
-<div class="container d-flex flex-column align-items-center">
-    <p>Click on Logout Button to Logout</p>
-    <a href="/logout" class="btn btn-primary">Go Back</a>
-    {{!-- <form action="/logout" method="get">
-        <button type="submit" class="btn btn-primary">Logout</button>
-    </form> --}}
-</div>

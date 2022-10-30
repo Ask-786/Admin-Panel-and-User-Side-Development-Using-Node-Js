@@ -1,0 +1,22 @@
+<div class="container-sm">
+    <div class="row pt-1">
+        <div class="col-md-6 col-10 position-relative">
+            <form action="/admin/add-blog" method="POST" class="position-relative">
+                <label for="" class="form-label">Author:</label>
+                <input type="text" class="form-control" required name="author_name" id="author-name" placeholder="Enter Username"
+                    id="author-name">
+                <label for="" class="form-label">Title:</label>
+                <input type="text" required class="form-control" name="title" id="title"
+                    placeholder="Enter The Title" id="title">
+                 <div class="form-group">
+                  <label for="">Blog Content:</label>
+                  <textarea type="text" required class="form-control" name="blogContent" id="blogContent"
+                    placeholder="Enter Blog" id="blogContent" rows="5"></textarea>
+                </div>
+                <br>
+                <input type="submit" value="Submit" class="btn btn-primary">
+            </form>
+        </div>
+    </div>
+</div>
+

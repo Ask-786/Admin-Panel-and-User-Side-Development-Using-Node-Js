@@ -3,6 +3,12 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const db = require('./config/connection')
+
+db.connect((err)=>{
+  if(err) console.log("Connection Error"+err);
+  else console.log("Datebase Connected");
+})
 
 const loginRouter = require('./routes/login');
 const loginAdminRouter = require('./routes/login_admin');
