@@ -1,4 +1,5 @@
 const db = require('../config/connection')
+const objectId = require('mongodb').ObjectId
 
 module.exports= {
     addBlogs:(blogData,callback)=>{
@@ -12,5 +13,12 @@ module.exports= {
             resolve(blogs);
         })
     },
-    
+    deleteBlog:(id)=>{
+        return new Promise((resolve,reject)=>{
+            db.get().collection('blogs').deleteOne({_id:objectId(id)}).then((returnVal)=>{
+                console.log(returnVal);
+                resolve(returnVal)
+            })
+        })
+    }
 }

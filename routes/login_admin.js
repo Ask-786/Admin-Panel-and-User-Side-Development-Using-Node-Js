@@ -8,22 +8,23 @@ router.get('/', function(req, res, next) {
   if(req.session.adLoggedIN){
     res.redirect('/admin'); 
   }else{
-    res.render('login_admin',{message:false})
+    res.render('login_admin',{adLoginErr:req.session.adLoginErr})
   }
 });
 
-router.post('/', function(req, res, next) {
+router.post('/',function(req, res, next) {
   if(req.body.name === adminName && req.body.password === adminPass){
     req.session.adLoggedIN=true;
     res.redirect('/admin')
   }else{
-    res.render('login_admin',{message:true})
+    req.session.adLoginErr=true
+    res.redirect('adlogin')
   }
 });
 
 router.get('/logout',(req,res)=>{
   req.session.destroy();
-  res.redirect('/');
+  res.redirect('/adlogin');
 })
 
 module.exports = router;

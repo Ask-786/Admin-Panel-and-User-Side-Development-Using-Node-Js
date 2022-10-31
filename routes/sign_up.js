@@ -15,7 +15,8 @@ router.post('/',(req,res)=>{
   //   res.redirect('/home')
   // })
   userHelpers.addUsers(req.body).then((id)=>{
-    console.log(id);
+    req.session.loggedIN=true;
+    res.redirect('/home')
   })
 });
 

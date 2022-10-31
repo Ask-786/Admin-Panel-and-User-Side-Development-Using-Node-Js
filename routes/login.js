@@ -9,7 +9,7 @@ router.get(['/','/login'], function(req, res, next) {
   if(req.session.loggedIN){
     res.redirect('/home')
   }else{
-    res.render('login')
+    res.render('login',{loginErr:req.session.loginErr})
   }
 });
 
@@ -17,9 +17,11 @@ router.post('/login', function(req, res, next) {
   userHelpers.getLoginDetails(req.body).then((response)=>{
     if(response.status){
       req.session.loggedIN=true;
+      req.session.user=response.user;
       res.redirect('/home')
     }else{
-      res.render('login',{message:true})
+      req.session.loginErr=true;
+      res.redirect('/')
     }
   })
 });

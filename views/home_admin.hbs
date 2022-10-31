@@ -24,7 +24,8 @@
       <td>{{this.title}}</td>
       <td>{{this.blogContent}}</td>
       <td>{{this.author_name}}</td>
-      <td><span><a class="btn btn-danger" href="#" role="button">Delete</a></span></td>
+      <td><span><a class="btn btn-warning" href="/admin/edit-blog/{{this._id}}" role="button">Edit</a></span></td>
+      <td><span><a class="btn btn-danger" href="/admin/delete-blog/{{this._id}}" onclick="return confirm('Are you sure to delete {{this.title}}?') " role="button">Delete</a></span></td>
     </tr>
     {{/each}}
   </tbody>
