@@ -4,11 +4,15 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const db = require('./config/connection')
+var sessions = require('express-session')
+
 
 db.connect((err)=>{
   if(err) console.log("Connection Error"+err);
-  else console.log("Datebase Connected");
+  else console.log("Database Connected");
 })
+
+const app = express();
 
 const loginRouter = require('./routes/login');
 const loginAdminRouter = require('./routes/login_admin');
@@ -16,7 +20,20 @@ const homeAdminRouter = require('./routes/home_admin');
 const homeRouter = require('./routes/home');
 const signUpRouter = require('./routes/sign_up');
 
-const app = express();
+app.use(sessions({
+  secret: "thisismysecretcodewith9656745192",
+  saveUninitialized:true,
+  cookie: { maxAge: 1000*60*60*24 },
+  resave: true
+}));
+
+app.use((req, res, next) => {
+  res.set(
+    "Cache-control",
+    "no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0"
+  );
+  next();
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

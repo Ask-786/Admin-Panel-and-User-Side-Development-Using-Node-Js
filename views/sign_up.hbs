@@ -14,10 +14,13 @@
         </div>
 
         <div class="col-md-6 col-10">
-            <form action="/" method="POST" class="position-relative">
+            <form action="/signup" method="POST" class="position-relative">
                 <label for="" class="form-label">Username:</label>
                 <input type="text" class="form-control" required name="username" placeholder="Enter Username"
                     id="user-name">
+                <label for="" class="form-label">Full Name:</label>
+                <input type="text" class="form-control" required name="name" placeholder="Enter Full Name"
+                    id="name">
                 <label for="" class="form-label">Email:</label>
                 <input type="email" required class="form-control" name="email" id="email"
                     placeholder="Enter Email">
@@ -27,9 +30,6 @@
                 <label for="" class="form-label">Password:</label>
                 <input type="text" required class="form-control" name="password" id="password"
                     placeholder="Enter Password">
-                <label for="" class="form-label">Confirm Password:</label>
-                <input type="password" required class="form-control" name="verify_password" id="verify_password"
-                    placeholder="Enter Password Again">
                 <br>
                 <input type="submit" value="Submit" class="btn btn-primary">
                 <a href="/login" class="position-absolute end-0 btn">Already a user? Go to login</a>

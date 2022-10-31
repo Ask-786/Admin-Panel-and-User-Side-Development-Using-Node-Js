@@ -1,14 +1,15 @@
 
 <div class="container d-flex flex-column align-items-center">
     <h1 class="mb-3">Admin Panel</h1>
-</div>
 <hr>
+<div>
 <a href="/admin/add-blogs" class="btn btn-primary">Add Blogs</a>
-<a href="/logout" class="btn btn-primary">User list</a>
-<a href="/logout" class="btn btn-danger">Logout</a>
+<a href="/admin/users" class="btn btn-primary">User list</a>
+<a href="/admin/logout" class="btn btn-danger">Logout</a>
+</div>
 <div class="container mt-5">
-<table class="table">
-  <thead>
+<table class="table table-bordered">
+  <thead class="thead-dark">
     <tr>
       <th scope="col">#</th>
       <th scope="col">Title</th>
@@ -17,16 +18,17 @@
     </tr>
   </thead>
   <tbody>
-    {{#each card}}
+    {{#each allBlogs}}
     <tr>
-      <th scope="row">#</th>
-      <td>{{this.heading}}</td>
-      <td>{{this.description}}</td>
-      <td>{{this.author}}</td>
+      <th scope="row">{{@index}}</th>
+      <td>{{this.title}}</td>
+      <td>{{this.blogContent}}</td>
+      <td>{{this.author_name}}</td>
       <td><span><a class="btn btn-danger" href="#" role="button">Delete</a></span></td>
     </tr>
     {{/each}}
   </tbody>
 </table>
+</div>
 </div>
 
