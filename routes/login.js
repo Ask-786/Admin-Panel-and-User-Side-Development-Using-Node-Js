@@ -9,7 +9,8 @@ router.get(['/','/login'], function(req, res, next) {
   if(req.session.loggedIN){
     res.redirect('/home')
   }else{
-    res.render('login',{loginErr:req.session.loginErr})
+    res.render('login',{loginErr:req.session.loginErr,title:"Login"})
+    req.session.loginErr=false;
   }
 });
 

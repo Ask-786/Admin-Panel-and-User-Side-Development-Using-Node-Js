@@ -5,9 +5,9 @@ const blogHelpers = require('../helpers/blog-helpers')
 
 router.get('/', function(req, res, next) {
   if(req.session.loggedIN){
-    let username = req.session.user.username;
+    let username = req.session.user;
     blogHelpers.getAllBlogs().then((allBlogs)=>{
-      res.render('home',{allBlogs,username})
+      res.render('home',{allBlogs,username,title:"Home"})
     })
   }else{
     res.redirect('/')

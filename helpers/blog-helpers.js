@@ -16,7 +16,26 @@ module.exports= {
     deleteBlog:(id)=>{
         return new Promise((resolve,reject)=>{
             db.get().collection('blogs').deleteOne({_id:objectId(id)}).then((returnVal)=>{
-                console.log(returnVal);
+                resolve(returnVal)
+            })
+        })
+    },
+    getOneBlog:(id)=>{
+        return new Promise((resolve,reject)=>{
+            db.get().collection('blogs').findOne({_id:objectId(id)}).then((returnVal)=>{
+                resolve(returnVal)
+            })
+        })
+        
+    },
+    editBlog:(blog,id)=>{
+        return new Promise((resolve,reject)=>{
+            db.get().collection('blogs').updateOne({_id:objectId(id)},{
+                $set:{
+                    author_name:blog.author_name,
+                    title:blog.title,
+                    blogContent:blog.blogContent
+                }}).then((returnVal)=>{
                 resolve(returnVal)
             })
         })

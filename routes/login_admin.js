@@ -8,7 +8,8 @@ router.get('/', function(req, res, next) {
   if(req.session.adLoggedIN){
     res.redirect('/admin'); 
   }else{
-    res.render('login_admin',{adLoginErr:req.session.adLoginErr})
+    res.render('login_admin',{adLoginErr:req.session.adLoginErr,title:"Admin Login"})
+    req.session.adLoginErr=false;
   }
 });
 

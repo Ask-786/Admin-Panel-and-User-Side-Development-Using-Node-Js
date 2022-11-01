@@ -1,20 +1,21 @@
 <div class="container-sm">
+
     <div class="row pt-1">
         <div class="col-md-3 col-1">
         </div>
         <div class="col-md-6 col-10">
-            <h2 class="mb-5">Add Blogs</h2>
-            <form action="/admin/add-blog" method="POST" class="position-relative">
+            <h2 class="mb-5">Edit Blog</h2>
+            <form action="/admin/edit-blog/{{blog._id}}" method="POST" class="position-relative">
                 <label for="" class="form-label">Author:</label>
-                <input type="text" class="form-control" required name="author_name" id="author-name" placeholder="Enter Username"
+                <input type="text" class="form-control" name="author_name" id="author-name" value="{{blog.author_name}}" 
                     id="author-name">
                 <label for="" class="form-label">Title:</label>
-                <input type="text" required class="form-control" name="title" id="title"
-                    placeholder="Enter The Title" id="title">
+                <input type="text" value="{{blog.title}}" class="form-control" name="title" id="title"
+                    id="title">
                  <div class="form-group">
                   <label for="">Blog Content:</label>
-                  <textarea type="text" required class="form-control" name="blogContent" id="blogContent"
-                    placeholder="Enter Blog" id="blogContent" rows="6"></textarea>
+                  <textarea type="text" class="form-control" name="blogContent" id="blogContent"
+                    id="blogContent" rows="6">{{blog.blogContent}}</textarea>
                 </div>
                 <br>
                 <input type="submit" value="Submit" class="btn btn-primary">

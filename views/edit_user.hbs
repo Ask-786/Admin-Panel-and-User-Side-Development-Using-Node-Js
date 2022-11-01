@@ -1,0 +1,36 @@
+<div class="container-sm">
+    <div class="row">
+        <div class="col text-center mt-5">
+            <h1>Register</h1>
+            <br>
+            <h5>Enter Your Username and Password to go to your Home Page</h5>
+            <br>
+        </div>
+    </div>
+    <div class="row pt-1">
+
+        <div class="col-md-3 col-1">
+
+        </div>
+
+        <div class="col-md-6 col-10">
+            <form action="/admin/users/edit-user/{{user._id}}" method="POST" class="position-relative">
+                <label for="" class="form-label">Username:</label>
+                <input type="text" class="form-control" required name="username" value="{{user.username}}"
+                    id="user-name">
+                <label for="" class="form-label">Full Name:</label>
+                <input type="text" class="form-control" required name="name" value="{{user.name}}"
+                    id="name">
+                <label for="" class="form-label">Email:</label>
+                <input type="email" required class="form-control" name="email" id="email"
+                    value="{{user.email}}">
+                <label for="" class="form-label">Phone:</label>
+                <input type="number" required class="form-control" name="phone" id="phone"
+                    value="{{user.phone}}">
+                <br>
+                <input type="submit" value="Submit" class="btn btn-primary">
+            </form>
+            <br>
+        </div>
+    </div>
+</div>

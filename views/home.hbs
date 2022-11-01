@@ -5,11 +5,11 @@
 <div class="container mt-5">
     <div class="row gy-2 gx-5">
         {{#each allBlogs}}
-        <div class="col-md-4">
+        <div class="col-md-4 position-relative">
             <h2>{{this.title}}</h2>
             <h6>{{this.author_name}}</h6>
             <p>{{this.blogContent}}</p>
-            <p><a class="btn btn-primary" href="#" role="button">View details &raquo;</a></p>
+            <p><a class="btn btn-primary position-relative mb-auto" href="#" role="button">View Blog &raquo;</a></p>
         </div>
         {{/each}}
     </div>

@@ -23,7 +23,8 @@
       <td>{{this.email}}</td>
       <td>{{this.phone}}</td>
       <td>{{this.password}}</td>
-      <td><span><a class="btn btn-danger" href="#" role="button">Delete</a></span></td>
+      <td><span><a class="btn btn-warning" href="/admin/users/edit-user/{{this._id}}" role="button">Edit</a></span></td>
+      <td><span><a class="btn btn-danger" href="/admin/users/delete-user/{{this._id}}" role="button">Delete</a></span></td>
     </tr>
     {{/each}}
   </tbody>

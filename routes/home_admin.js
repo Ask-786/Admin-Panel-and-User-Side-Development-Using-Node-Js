@@ -15,14 +15,14 @@ const auth =(req,res,next)=>{
 router.get('/',auth, function(req, res, next) {
   
     blogHelpers.getAllBlogs().then((allBlogs)=>{
-      res.render('home_admin',{allBlogs})
+      res.render('home_admin',{allBlogs,title:"admin"})
     })
   
 });
 
 router.get('/add-blogs',auth,(req,res)=>{
   
-    res.render('add_blogs');
+    res.render('add_blogs',{title:"Add-Blogs"});
   
 });
 
@@ -34,19 +34,48 @@ router.post('/add-blog',(req,res)=>{
 
 router.get('/users',auth,(req,res)=>{
     userHelpers.getAllUsers().then((allUsers)=>{
-      res.render('users',{allUsers})
+      res.render('users',{allUsers,title:"User List"})
     })
 })
 
-router.get('/delete-blog/:id',(req,res)=>{
+router.get('/delete-blog/:id',auth,(req,res)=>{
   let blogId = req.params.id;
   blogHelpers.deleteBlog(blogId).then((returnVal)=>{
-    console.log(blogId);
     res.redirect('/admin')
   })
 })
-router.get('/edit-blog',(req,res)=>{
-  
+
+router.get('/edit-blog/:id',auth,(req,res)=>{
+  let blogId = req.params.id;
+  blogHelpers.getOneBlog(blogId).then((blog)=>{
+    res.render('edit_blogs',{blog,title:"Edit Blog"})
+  })
+})
+
+router.post('/edit-blog/:id',(req,res)=>{
+  blogHelpers.editBlog(req.body,req.params.id).then((returnVal)=>{
+    res.redirect('/admin')
+  })
+});
+
+router.get('/users/edit-user/:id',auth,(req,res)=>{
+  let userId = req.params.id;
+  userHelpers.getOneUser(userId).then((user)=>{
+    res.render('edit_user',{user})
+  })
+})
+
+router.post('/users/edit-user/:id',(req,res)=>{
+  userHelpers.editUser(req.body,req.params.id).then((returnVal)=>{
+    res.redirect('/admin/users')
+  })
+});
+
+router.get('/users/delete-user/:id',auth,(req,res)=>{
+  let userId = req.params.id;
+  userHelpers.deleteUser(userId).then((returnVal)=>{
+    res.redirect('/admin/users')
+  })
 })
 
 module.exports = router;
