@@ -44,6 +44,13 @@ module.exports= {
             resolve(users);
         })
     },
+    getQueriedUsers:(data)=>{
+        return new Promise(async (resolve,reject)=>{
+            let regExp = new RegExp(data,'i')
+            let users = await db.get().collection('users').find({$or:[{name:{$regex:regExp}},{username:{$regex:regExp}},{phone:{$regex:regExp}},{email:{$regex:regExp}}]}).toArray()
+            resolve(users);
+        })
+    },
     getOneUser:(id)=>{
         return new Promise(async (resolve,reject)=>{
             await db.get().collection('users').findOne({_id:objectId(id)}).then((returnVal)=>{

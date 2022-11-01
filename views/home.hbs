@@ -3,12 +3,20 @@
 </div>
 <hr>
 <div class="container mt-5">
-    <div class="row gy-2 gx-5">
+    <div class="card mt-1">
         {{#each allBlogs}}
-        <div class="col-md-4 position-relative">
-            <h2>{{this.title}}</h2>
-            <h6>{{this.author_name}}</h6>
-            <p>{{this.blogContent}}</p>
+        <hr style="margin:0px; color:rgb(0, 0, 0)">
+        <div class="card-header">
+            <h3>{{this.title}}</h3>
+        </div>
+        <div class="card-body">
+            <blockquote class="blockquote mb-0">
+                <p>{{this.blogContent}}</p>
+                <br>
+                <footer class="blockquote-footer">{{this.author_name}}<cite title="Source Title"> -Brocamp
+                        Calicut</cite></footer>
+            </blockquote>
+            <br>
             <p><a class="btn btn-primary position-relative mb-auto" href="#" role="button">View Blog &raquo;</a></p>
         </div>
         {{/each}}

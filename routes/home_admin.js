@@ -73,9 +73,19 @@ router.post('/users/edit-user/:id',(req,res)=>{
 
 router.get('/users/delete-user/:id',auth,(req,res)=>{
   let userId = req.params.id;
+  req.session.userId=true;
   userHelpers.deleteUser(userId).then((returnVal)=>{
     res.redirect('/admin/users')
   })
 })
+
+
+router.post('/users/user-search',(req,res)=>{
+  userHelpers.getQueriedUsers(req.body.searchdata).then((matchedUsers)=>{
+    res.render('users',{matchedUsers,title:"Users"})
+  })
+})
+
+
 
 module.exports = router;
