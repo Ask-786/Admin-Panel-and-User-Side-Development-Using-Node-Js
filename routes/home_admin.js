@@ -79,13 +79,12 @@ router.get('/users/delete-user/:id',auth,(req,res)=>{
   })
 })
 
+router.get('/users/user-search',auth,(req,res)=>{})
 
-router.post('/users/user-search',(req,res)=>{
+router.post('/users/user-search',auth,(req,res)=>{
   userHelpers.getQueriedUsers(req.body.searchdata).then((matchedUsers)=>{
-    res.render('users',{matchedUsers,title:"Users"})
+    res.render('users',{matchedUsers,title:"Users",searchVal:req.body.searchdata})
   })
 })
-
-
 
 module.exports = router;

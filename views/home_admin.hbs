@@ -6,7 +6,7 @@
     <a href="/admin/users" class="btn btn-primary">User list</a>
     <a href="/adlogin/logout" class="btn btn-danger">Logout</a>
   </div>
-  
+
   <div class="container mt-5">
     <table class="table table-bordered">
       <thead class="thead-dark">
@@ -22,7 +22,7 @@
         <tr>
           <th scope="row">{{@index}}</th>
           <td>{{this.title}}</td>
-          <td>{{this.blogContent}}</td>
+          <td><xmp>{{this.blogContent}}</xmp></td>
           <td>{{this.author_name}}</td>
           <td><span><a class="btn btn-warning" href="/admin/edit-blog/{{this._id}}" role="button">Edit</a></span></td>
           <td><span><a class="btn btn-danger" href="/admin/delete-blog/{{this._id}}"
